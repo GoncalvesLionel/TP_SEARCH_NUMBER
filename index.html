@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TP_SEARCH_NUMBER</title>
+</head>
+<body>
+    <script>
+        nbTrouv = Math.floor(Math.random() * 10);
+        console.log(nbTrouv);
+        function jeux() {
+            nbPrompt = prompt("Entrez le nombre à trouver");
+            console.log(nbPrompt);
+            if (nbPrompt < nbTrouv){
+                document.getElementById("btnJeux").textContent = "DOMMAGE!!! LE NUMERO EST TROP PETIT";
+                document.getElementById("btnJeux").style.background ="indianred";
+            }
+            else if (nbPrompt > nbTrouv){
+                document.getElementById("btnJeux").textContent = "DOMMAGE!!! LE NUMERO EST TROP GRAND";
+                document.getElementById("btnJeux").style.background ="indianred";
+            }
+            else {
+                document.getElementById("btnJeux").textContent = "BRAVO!!! LE NOMBRE ETAIT " + nbTrouv;
+                document.getElementById("btnJeux").style.background ="lightgreen";
+            }
+
+        }
+    </script>
+    <button onclick="jeux()" id="btnJeux" style="background-color: lightblue">TROUVE LE BON NOMBRE ENTRE 1 ET 10</button>
+</body>
+</html>
