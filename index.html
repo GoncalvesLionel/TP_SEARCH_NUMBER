@@ -6,26 +6,32 @@
 </head>
 <body>
     <script>
+        prompt("choisi le min et max");
         nbTrouv = Math.floor(Math.random() * 10);
-        console.log(nbTrouv);
+        limit = 4
+        nbessais = 0
         function jeux() {
             nbPrompt = prompt("Entrez le nombre à trouver");
-            console.log(nbPrompt);
-            if (nbPrompt < nbTrouv){
-                document.getElementById("btnJeux").textContent = "DOMMAGE!!! LE NUMERO EST TROP PETIT";
+            document.getElementById("historique").textContent = document.getElementById("historique").textContent + nbPrompt
+            if (nbPrompt < nbTrouv){document.getElementById("btnJeux").textContent = "DOMMAGE!!! LE NUMERO EST TROP PETIT";
                 document.getElementById("btnJeux").style.background ="indianred";
-            }
-            else if (nbPrompt > nbTrouv){
-                document.getElementById("btnJeux").textContent = "DOMMAGE!!! LE NUMERO EST TROP GRAND";
-                document.getElementById("btnJeux").style.background ="indianred";
-            }
-            else {
-                document.getElementById("btnJeux").textContent = "BRAVO!!! LE NOMBRE ETAIT " + nbTrouv;
-                document.getElementById("btnJeux").style.background ="lightgreen";
-            }
 
+                document.getElementById("limit").textContent = limit = limit - 1;}
+            else if (nbPrompt > nbTrouv){document.getElementById("btnJeux").textContent = "DOMMAGE!!! LE NUMERO EST TROP GRAND";
+                document.getElementById("btnJeux").style.background ="indianred";
+                limit = limit - 1;
+                document.getElementById("limit").textContent = limit = limit - 1;}
+            else {document.getElementById("btnJeux").textContent = "BRAVO!!! LE NOMBRE ETAIT " + nbTrouv;
+                document.getElementById("btnJeux").style.background ="lightgreen";}
+            if (limit == 0) {
+                document.getElementById("btnJeux").textContent="Perdu!!!"}
         }
     </script>
     <button onclick="jeux()" id="btnJeux" style="background-color: lightblue">TROUVE LE BON NOMBRE ENTRE 1 ET 10</button>
+    <div id="essais">Le nombre d'essais restant est </div>
+    <div id="limit">
+         4
+    </div>
+    <div id="historique">Voici les nombres que vous avez déjà utilisé</div>
 </body>
 </html>
